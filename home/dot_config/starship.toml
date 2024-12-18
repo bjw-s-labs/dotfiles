@@ -1,0 +1,96 @@
+palette = "catppuccin_mocha"
+format = '''
+$os$time$username($hostname)($kubernetes)($git_branch)($python)($terraform)($golang)
+$directory$character
+'''
+
+[os]
+disabled = false
+symbols.Macos = ""
+symbols.Debian = "\uf306"
+style= "bg:blue fg:base"
+format = "[ $symbol ]($style)"
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:blue fg:base bold"
+format = "[ 󱑍 $time [](fg:blue bg:peach)]($style)"
+
+[username]
+disabled = false
+show_always = true
+style_user = "bg:peach fg:base bold"
+style_root = "bg:peach fg:base bold"
+format = "[ $user [](fg:peach bg:base)]($style)"
+
+[hostname]
+disabled = false
+ssh_only = true
+ssh_symbol = "🌐"
+style = "bg:maroon fg:base bold"
+format = "[ $ssh_symbol $hostname [](fg:maroon bg:base)]($style)"
+
+[git_branch]
+symbol = "  "
+style = " bg:yellow fg:base"
+format = "[ $symbol$branch(:$remote_branch) [](fg:yellow bg:base)]($style)"
+
+[kubernetes]
+disabled = false
+symbol = "󱃾 "
+style= "bg:green fg:base"
+format = "[ $symbol$context \\($namespace\\) [](fg:green bg:base)]($style)"
+
+[python]
+symbol = " "
+style= "bg:flamingo fg:base"
+format = "[ $symbol$pyenv_prefix($version )(\\($virtualenv\\)) [](fg:flamingo bg:base)]($style)"
+
+[golang]
+symbol = " "
+style= "bg:flamingo fg:base"
+format = "[ $symbol($version) [](fg:flamingo bg:base)]($style)"
+
+[terraform]
+symbol = "󱁢 "
+style= "bg:flamingo fg:base"
+format = "[ $symbol$version [](fg:flamingo bg:base)]($style)"
+
+[directory]
+truncation_length = 4
+truncation_symbol = "…/"
+style = "fg:lavender"
+format = "[ $path]($style)"
+
+[character]
+success_symbol = "[ >](bold green)"
+error_symbol = "[ ✗](#E84D44)"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
