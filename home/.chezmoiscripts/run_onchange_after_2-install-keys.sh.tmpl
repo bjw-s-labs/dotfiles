@@ -1,0 +1,24 @@
+#!/bin/bash
+{{ if (eq .chezmoi.os "darwin") }}
+# ---------------------------------------------------------------------------------------------------------------------
+# Install GPG key from 1Password
+# Secret version: {{ (onepassword "sjbzbdjavguaqcnkekyr6bl3ye" "bnodm2lukpxmk6lotmtqi6gca4" "MZ35OPW6FJA6HHBP2XLOFOGL2U").version }}
+# ---------------------------------------------------------------------------------------------------------------------
+
+KEY_ID="{{ onepasswordRead "op://bnodm2lukpxmk6lotmtqi6gca4/sjbzbdjavguaqcnkekyr6bl3ye/gpg_key_id" "MZ35OPW6FJA6HHBP2XLOFOGL2U" }}"
+
+if gpg --list-secret-keys --keyid-format long | grep -q "${KEY_ID}"; then
+  echo "GPG key is present already"
+else
+    # EOF the key into a temporary file
+    tmpDir=$(mktemp -d)
+    tmpFile="${tmpDir}/${KEY_ID}.key"
+
+    # Manually use the onepassword command to get the file
+    op read --out-file $tmpFile op://bnodm2lukpxmk6lotmtqi6gca4/sjbzbdjavguaqcnkekyr6bl3ye/0x80FF2B2CE4316DEE.key --account "MZ35OPW6FJA6HHBP2XLOFOGL2U"
+
+    # Import the key
+    gpg --import $tmpFile
+fi
+
+{{- end }}

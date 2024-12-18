@@ -1,0 +1,5 @@
+host *
+  ControlMaster auto
+  ControlPath ~/.ssh/controlmasters/ssh-%r@%h:%p
+
+Include "config.d/*"
