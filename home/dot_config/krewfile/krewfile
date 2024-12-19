@@ -1,0 +1,11 @@
+index netshoot https://github.com/nilic/kubectl-netshoot.git
+
+browse-pvc
+df-pv
+klock
+neat
+netshoot/netshoot
+oidc-login
+pv-migrate
+rook-ceph
+view-secret
