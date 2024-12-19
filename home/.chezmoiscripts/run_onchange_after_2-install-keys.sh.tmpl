@@ -15,7 +15,7 @@ else
     tmpFile="${tmpDir}/${KEY_ID}.key"
 
     # Manually use the onepassword command to get the file
-    op read --out-file $tmpFile op://bnodm2lukpxmk6lotmtqi6gca4/sjbzbdjavguaqcnkekyr6bl3ye/0x80FF2B2CE4316DEE.key --account "MZ35OPW6FJA6HHBP2XLOFOGL2U"
+    op read --out-file $tmpFile op://bnodm2lukpxmk6lotmtqi6gca4/sjbzbdjavguaqcnkekyr6bl3ye/${KEY_ID}.key --account "MZ35OPW6FJA6HHBP2XLOFOGL2U"
 
     # Import the key
     gpg --import $tmpFile
