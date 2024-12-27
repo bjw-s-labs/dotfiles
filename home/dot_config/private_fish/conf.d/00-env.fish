@@ -3,5 +3,5 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 
 set -gx LANG "en_US.utf-8"
 
-set -gx VISUAL code
+set -gx VISUAL vim
 set -gx EDITOR vim
