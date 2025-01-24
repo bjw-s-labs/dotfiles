@@ -1,0 +1,64 @@
+{
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+  },
+  "editor.bracketPairColorization.enabled": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.guides.bracketPairs": "active",
+  "editor.guides.bracketPairsHorizontal": "active",
+  "editor.guides.highlightActiveBracketPair": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.fontFamily": "'MonaspiceKr Nerd Font Mono'",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 12,
+  "editor.tabSize": 2,
+  "extensions.autoCheckUpdates": true,
+  "extensions.autoUpdate": true,
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.autoSave": "onFocusChange",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.replaceTagsWhenPull": true,
+  "linter.linters": {
+    "yamllint": {
+      "configFiles": [
+        ".yamllint.yml",
+        ".yamllint.yaml",
+        ".yamllint",
+        ".ci/yamllint/.yamllint.yaml"
+      ]
+    }
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "path-autocomplete.triggerOutsideStrings": true,
+  "projectManager.filterOnFullPath": true,
+  "projectManager.git.baseFolders": [
+    "~/Development/src"
+  ],
+  "projectManager.showParentFolderInfoOnDuplicates": true,
+  "redhat.telemetry.enabled": false,
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.shellIntegration.enabled": false,
+  "todo-tree.highlights.useColourScheme": true,
+  "todo-tree.tree.expanded": true,
+  "update.mode": "default",
+  "update.showReleaseNotes": false,
+  "vs-kubernetes": {
+    "vs-kubernetes.crd-code-completion": "disabled"
+  },
+  "window.commandCenter": false,
+  "window.newWindowDimensions": "maximized",
+  "window.restoreWindows": "none",
+  "window.titleBarStyle": "custom",
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.tree.renderIndentGuides": "none",
+}
