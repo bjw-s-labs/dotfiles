@@ -9,6 +9,6 @@ echo "Running brew bundle"
 brew bundle --all --file "{{ .chezmoi.homeDir }}/.config/homebrew/brewfile"
 
 echo "Running brew bundle cleanup"
-brew bundle cleanup --all --file "{{ .chezmoi.homeDir }}/.config/homebrew/brewfile" || true
+brew bundle cleanup --brews --casks --taps --mas --no-vscode --file "{{ .chezmoi.homeDir }}/.config/homebrew/brewfile" --force || true
 
 {{- end }}
