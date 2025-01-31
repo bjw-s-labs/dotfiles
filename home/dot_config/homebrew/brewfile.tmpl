@@ -1,6 +1,7 @@
 tap "aymanbagabas/tap"
 tap "fluxcd/tap"
 tap "homebrew/bundle"
+tap "goreleaser/tap"
 
 brew "age"
 brew "atuin"
@@ -39,6 +40,7 @@ brew "minijinja-cli"
 brew "mise"
 brew "neovim"
 brew "pinentry-mac"
+brew "shellcheck"
 brew "sops"
 brew "starship"
 brew "stern"
@@ -50,6 +52,7 @@ brew "yq"
 brew "zoxide"
 brew "aymanbagabas/tap/shcopy"
 brew "fluxcd/tap/flux"
+brew "goreleaser/tap/goreleaser"
 
 cask "1password"
 cask "1password-cli"
@@ -124,9 +127,7 @@ cask "openscad@snapshot"
 mas "Labelife", id: 1560922539
 mas "Windows App", id: 1295203466
 {{ else }}
-tap "robusta-dev/krr"
-
-brew "robusta-dev/krr/krr"
+brew "kyverno"
 
 cask "citrix-workspace"
 cask "displaylink"
