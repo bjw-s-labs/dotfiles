@@ -54,6 +54,7 @@
   },
   "window.commandCenter": false,
   "window.newWindowDimensions": "maximized",
+  "window.newWindowProfile": "Default",
   "window.restoreWindows": "none",
   "window.titleBarStyle": "custom",
   "workbench.colorTheme": "Catppuccin Mocha",
