@@ -1,5 +1,5 @@
 # Theme config
-theme = catppuccin-mocha
+theme = catppuccin-mocha.conf
 
 # Fonts
 font-family = MonaspiceKr Nerd Font Mono
