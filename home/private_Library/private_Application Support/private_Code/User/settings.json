@@ -23,7 +23,9 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
+  "git.branchProtectionPrompt": "alwaysCommit",
   "git.confirmSync": false,
+  "git.enableSmartCommit": true,
   "git.replaceTagsWhenPull": true,
   "linter.linters": {
     "yamllint": {
@@ -37,10 +39,6 @@
   },
   "go.toolsManagement.autoUpdate": true,
   "path-autocomplete.triggerOutsideStrings": true,
-  "projectManager.filterOnFullPath": true,
-  "projectManager.git.baseFolders": [
-    "~/Development/src"
-  ],
   "projectManager.showParentFolderInfoOnDuplicates": true,
   "redhat.telemetry.enabled": false,
   "telemetry.telemetryLevel": "off",
