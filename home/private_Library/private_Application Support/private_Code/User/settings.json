@@ -1,9 +1,15 @@
 {
   "[go]": {
-    "editor.defaultFormatter": "golang.go",
+    "editor.defaultFormatter": "golang.go"
   },
+  "[yaml]": {
+    "editor.defaultFormatter": "kennylong.kubernetes-yaml-formatter"
+  },
+  "better-yaml.indentSeq": false,
+  "better-yaml.directives": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
   "editor.guides.bracketPairsHorizontal": "active",
   "editor.guides.highlightActiveBracketPair": true,
@@ -27,16 +33,6 @@
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.replaceTagsWhenPull": true,
-  "linter.linters": {
-    "yamllint": {
-      "configFiles": [
-        ".yamllint.yml",
-        ".yamllint.yaml",
-        ".yamllint",
-        ".ci/yamllint/.yamllint.yaml"
-      ]
-    }
-  },
   "go.toolsManagement.autoUpdate": true,
   "path-autocomplete.triggerOutsideStrings": true,
   "projectManager.showParentFolderInfoOnDuplicates": true,
@@ -59,5 +55,5 @@
   "workbench.iconTheme": "catppuccin-mocha",
   "workbench.sideBar.location": "left",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.tree.renderIndentGuides": "none",
+  "workbench.tree.renderIndentGuides": "none"
 }
