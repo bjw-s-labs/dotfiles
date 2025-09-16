@@ -9,3 +9,10 @@
 [[ssh-keys]]
 vault = "Private"
 item = "Personal SSH key"
+
+{{- if (not .isWorkComputer) }}
+
+[[ssh-keys]]
+vault = "Private"
+item = "Valetudo SSH key"
+{{- end }}

@@ -5,6 +5,7 @@
   "[yaml]": {
     "editor.defaultFormatter": "bluebrown.yamlfmt"
   },
+  "docker.extension.enableComposeLanguageServer": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
