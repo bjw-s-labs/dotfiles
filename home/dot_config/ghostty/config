@@ -2,10 +2,10 @@
 theme = catppuccin-mocha.conf
 
 # Fonts
-font-family = MonaspiceKr Nerd Font Mono
-font-family-bold = MonaspiceKr Nerd Font Bold
-font-family-italic = MonaspiceKr Nerd Font Italic
-font-family-bold-italic = MonaspiceKr Nerd Font Bold Italic
+font-family = Monaspace Krypton NF
+font-family-bold = Monaspace Krypton NF Bold
+font-family-italic = Monaspace Krypton NF Italic
+font-family-bold-italic = Monaspace Krypton NF Bold Italic
 font-size = 12
 font-thicken = true
 
