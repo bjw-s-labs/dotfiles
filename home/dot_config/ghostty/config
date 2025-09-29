@@ -26,3 +26,8 @@ shell-integration = detect
 # Window settings
 window-height = 45
 window-width = 180
+
+# Cursor settings
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
