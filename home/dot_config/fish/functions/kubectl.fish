@@ -1,7 +1,7 @@
 function kubectl --wraps=kubectl
   if type -q kubecolor
-    {{ lookPath "kubecolor" }} $argv
+    command kubecolor $argv
   else
-    {{ lookPath "kubectl" }} $argv
+    command kubectl $argv
   end
 end
