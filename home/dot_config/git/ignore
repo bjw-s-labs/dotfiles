@@ -11,10 +11,5 @@ Thumbs.db
 .mise.toml
 mise.toml
 
-# sops
-.decrypted~*
-*.decrypted.*
-
 # Python
 .venv
-
