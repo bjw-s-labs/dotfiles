@@ -22,6 +22,7 @@
   "[yaml]": {
     "editor.defaultFormatter": "bluebrown.yamlfmt"
   },
+  "chat.disableAIFeatures": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
