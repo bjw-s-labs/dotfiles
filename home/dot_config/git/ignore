@@ -13,3 +13,6 @@ mise.toml
 
 # Python
 .venv
+
+# Claude
+**/.claude/settings.local.json
