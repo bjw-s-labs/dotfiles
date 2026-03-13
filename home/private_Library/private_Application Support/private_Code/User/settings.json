@@ -16,15 +16,39 @@
   "[go]": {
     "editor.defaultFormatter": "golang.go"
   },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[json5]": {
+    "editor.defaultFormatter": "savh.json5-kit"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
   "[just]": {
     "editor.defaultFormatter": "nefrob.vscode-just-syntax"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[yaml]": {
     "editor.defaultFormatter": "bluebrown.yamlfmt"
   },
   "chat.disableAIFeatures": true,
+  "claudeCode.preferredLocation": "panel",
   "editor.bracketPairColorization.enabled": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
   "editor.guides.bracketPairsHorizontal": "active",
@@ -50,6 +74,7 @@
   "git.enableSmartCommit": true,
   "git.replaceTagsWhenPull": true,
   "go.toolsManagement.autoUpdate": true,
+  "mise.checkForNewMiseVersion": false,
   "path-autocomplete.triggerOutsideStrings": true,
   "redhat.telemetry.enabled": false,
   "telemetry.telemetryLevel": "off",
@@ -84,6 +109,6 @@
     "editorIndentGuide.activeBackground3": "#f9e2af",
     "editorIndentGuide.activeBackground4": "#a6e3a1",
     "editorIndentGuide.activeBackground5": "#89b4fa",
-    "editorIndentGuide.activeBackground6": "#cba6f7"
-  }
+    "editorIndentGuide.activeBackground6": "#cba6f7",
+  },
 }
