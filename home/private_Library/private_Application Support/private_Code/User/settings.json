@@ -47,7 +47,7 @@
     "editor.defaultFormatter": "bluebrown.yamlfmt"
   },
   "chat.disableAIFeatures": true,
-  "claudeCode.preferredLocation": "panel",
+  "docker.languageserver.formatter.ignoreMultilineInstructions": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
@@ -77,6 +77,13 @@
   "mise.checkForNewMiseVersion": false,
   "path-autocomplete.triggerOutsideStrings": true,
   "redhat.telemetry.enabled": false,
+  "roo-cline.debug": false,
+  "roo-cline.allowedCommands": [
+    "git log",
+    "git diff",
+    "git show"
+  ],
+  "roo-cline.deniedCommands": [],
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.shellIntegration.enabled": false,
   "todo-tree.highlights.useColourScheme": true,
