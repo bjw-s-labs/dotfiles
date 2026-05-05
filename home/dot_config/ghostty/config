@@ -12,6 +12,7 @@ font-thicken = true
 # macOS specific
 macos-auto-secure-input = true
 macos-secure-input-indication = true
+macos-option-as-alt = true
 
 window-padding-balance = false
 window-padding-x = 10
@@ -31,6 +32,3 @@ window-width = 180
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
-
-# Key bindings
-keybind = opt+backspace=text:\x17
