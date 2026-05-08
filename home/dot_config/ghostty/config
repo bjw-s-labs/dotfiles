@@ -32,3 +32,6 @@ window-width = 180
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
+
+# Shell settings
+shell-integration-features = ssh-env,ssh-terminfo
