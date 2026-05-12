@@ -18,6 +18,9 @@ if [ "${ostype}" == "Darwin" ]; then
     echo "Command line developer tools are already installed."
   fi
 
+  # Install rosetta
+  sudo softwareupdate --agree-to-license --install-rosetta
+
   # Install Homebrew if necessary
   export HOMEBREW_CASK_OPTS=--no-quarantine
   if which -s brew; then
