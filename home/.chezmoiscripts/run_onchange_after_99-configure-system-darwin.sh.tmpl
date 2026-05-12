@@ -45,6 +45,8 @@ defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 defaults write com.apple.finder ShowStatusBar -bool true
+# Enable path bar
+defaults write com.apple.finder "ShowPathbar" -bool "true"
 # Set sidebar icon size to small
 defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "1"
 # Show all file extensions
@@ -83,4 +85,9 @@ defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Set Liquid Glass to Tinted
 defaults read NSGlobalDomain "NSGlassDiffusionSetting" -int "1"
+# Trackpad settings
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write -g com.apple.mouse.tapBehavior -int 1
+defaults write -g com.apple.trackpad.enableSecondaryClick -bool true
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 {{- end }}
