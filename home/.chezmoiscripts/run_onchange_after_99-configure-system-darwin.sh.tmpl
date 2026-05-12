@@ -87,6 +87,8 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 defaults write NSGlobalDomain "NSGlassDiffusionSetting" -int "1"
 # Trackpad settings
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write com.apple.AppleMultitouchTrackpad Dragging -bool true
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 defaults write -g com.apple.mouse.tapBehavior -int 1
 defaults write -g com.apple.trackpad.enableSecondaryClick -bool true
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
