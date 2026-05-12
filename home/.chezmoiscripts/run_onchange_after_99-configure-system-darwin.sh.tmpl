@@ -84,7 +84,7 @@ defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 # Set Liquid Glass to Tinted
-defaults read NSGlobalDomain "NSGlassDiffusionSetting" -int "1"
+defaults write NSGlobalDomain "NSGlassDiffusionSetting" -int "1"
 # Trackpad settings
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write -g com.apple.mouse.tapBehavior -int 1
