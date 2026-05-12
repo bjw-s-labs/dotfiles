@@ -2,7 +2,7 @@
 
 set -Eeuo pipefail
 
-declare -r DOTFILES_REPO_URL="https://github.com/bjw-s-labs/dotfiles"
+declare -r DOTFILES_REPO_URL="git@git.bjw-s.dev:bjw-s/dotfiles.git"
 
 function get_os_type() {
   uname
@@ -45,6 +45,6 @@ if [ "${ostype}" == "Darwin" ]; then
 
   # Apply dotfiles
   echo "Applying Chezmoi configuration."
-  chezmoi init bjw-s-labs/dotfiles
+  chezmoi init "${DOTFILES_REPO_URL}"
   chezmoi apply
 fi
