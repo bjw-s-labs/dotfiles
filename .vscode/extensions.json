@@ -1,3 +1,5 @@
 {
-  "recommendations": ["ndonfris.fish-lsp"]
+  "recommendations": [
+    "bmalehorn.vscode-fish"
+  ]
 }
