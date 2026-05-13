@@ -20,7 +20,7 @@ error_symbol = "[✗](bold red)"
 truncate_to_repo = false
 truncation_length = 3
 truncation_symbol = "…/"
-style = "fg:lavender"
+style = "fg:peach"
 format = "[ $path]($style) "
 
 [golang]
