@@ -1,5 +1,7 @@
 enter_accept = false
+search_mode = "daemon-fuzzy"
 sync_address = "https://atuin.bjw-s.dev"
+sync_frequency = "1m"
 
 [daemon]
 enabled = true
