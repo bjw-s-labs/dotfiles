@@ -1,2 +1,6 @@
 enter_accept = false
 sync_address = "https://atuin.bjw-s.dev"
+
+[daemon]
+enabled = true
+autostart = true
