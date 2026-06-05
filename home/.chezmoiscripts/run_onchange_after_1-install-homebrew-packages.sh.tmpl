@@ -6,9 +6,11 @@
 # ---------------------------------------------------------------------------------------------------------------------
 export HOMEBREW_CASK_OPTS=--no-quarantine
 echo "Running brew bundle"
-brew bundle --all --file "{{ .chezmoi.homeDir }}/.config/homebrew/brewfile"
+brew bundle install --file "{{ .chezmoi.homeDir }}/.config/homebrew/brewfile"
+
+echo "Running brew cleanup"
+brew cleanup --prune=all
 
 echo "Running brew bundle cleanup"
-brew bundle cleanup --brews --casks --taps --mas --no-vscode --file "{{ .chezmoi.homeDir }}/.config/homebrew/brewfile" --force || true
-
+brew bundle cleanup --no-cleanup-vscode --file "{{ .chezmoi.homeDir }}/.config/homebrew/brewfile" || true
 {{- end }}
