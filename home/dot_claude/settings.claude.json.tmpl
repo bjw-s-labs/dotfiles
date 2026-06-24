@@ -1,0 +1,22 @@
+{
+  "env": {
+    "MEMINI_URL": "https://memini.bjw-s.dev",
+    "MEMINI_MCP_URL": "https://memini.bjw-s.dev/mcp",
+    "MEMINI_TOKEN": "{{ onepasswordRead "op://rrs5eynf6ibou7zbumg56erpd4/df3jxky4ht2rzejses52yjlgte/api_key" "MZ35OPW6FJA6HHBP2XLOFOGL2U" }}"
+  },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "memini@memini": true
+  },
+  "extraKnownMarketplaces": {
+    "memini": {
+      "source": {
+        "source": "github",
+        "repo": "eleboucher/memini"
+      }
+    }
+  },
+  "awaySummaryEnabled": false,
+  "theme": "auto"
+}

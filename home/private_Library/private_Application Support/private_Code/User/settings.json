@@ -61,7 +61,7 @@
   "editor.fontSize": 12,
   "editor.tabSize": 2,
   "extensions.autoCheckUpdates": true,
-  "extensions.autoUpdate": true,
+  "extensions.autoUpdate": "on",
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
