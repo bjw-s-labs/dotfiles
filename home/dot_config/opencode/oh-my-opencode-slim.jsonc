@@ -1,65 +1,37 @@
 {
   "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
+  "multiplexer": {
+    "type": "auto",
+    "layout": "main-vertical",
+    "main_pane_size": 60
+  },
+  "preset": "opencode-go",
   "disabled_agents": [],
-  "preset": "litellm",
   "presets": {
-    "litellm": {
+    "opencode-go": {
       "orchestrator": {
-        "model": "litellm/neuralwatt/glm-5.2",
-        "variant": "high",
-        "options": {
-          "reasoning_effort": "high"
-        },
-        "skills": [
-          "*"
-        ],
-        "mcps": [
-          "*",
-          "!context7"
-        ]
+        "model": "litellm/opencode-go/glm-5.2"
       },
       "oracle": {
-        "model": "litellm/neuralwatt/kimi-k2.7-code",
-        "skills": [
-          "simplify"
-        ],
-        "mcps": []
-      },
-      "council": {
-        "model": "litellm/neuralwatt/kimi-k2.7-code",
-        "skills": [],
-        "mcps": []
+        "model": "litellm/opencode-go/qwen3.7-max",
+        "variant": "max"
       },
       "librarian": {
-        "model": "litellm/neuralwatt/kimi-k2.6-flex",
-        "temperature": 0.6,
-        "skills": [],
-        "mcps": [
-          "websearch",
-          "context7",
-          "gh_grep"
-        ]
+        "model": "litellm/opencode-go/deepseek-v4-flash"
       },
       "explorer": {
-        "model": "litellm/neuralwatt/glm-5.2-short-fast-flex",
-        "temperature": 0.7,
-        "skills": [],
-        "mcps": []
+        "model": "litellm/opencode-go/deepseek-v4-flash"
       },
       "designer": {
-        "model": "litellm/neuralwatt/kimi-k2.7-code",
-        "skills": [],
-        "mcps": []
+        "model": "litellm/opencode-go/kimi-k2.7-code",
+        "variant": "medium"
       },
       "fixer": {
-        "model": "litellm/neuralwatt/qwen3.6-35b",
-        "skills": [],
-        "mcps": []
+        "model": "litellm/opencode-go/deepseek-v4-flash",
+        "variant": "high"
       },
       "observer": {
-        "model": "litellm/neuralwatt/kimi-k2.6",
-        "skills": [],
-        "mcps": []
+        "model": "litellm/opencode-go/kimi-k2.6"
       }
     }
   },
@@ -67,16 +39,16 @@
     "presets": {
       "default": {
         "glm": {
-          "model": "litellm/neuralwatt/glm-5.2"
+          "model": "litellm/opencode-go/glm-5.2"
         },
         "kimi": {
-          "model": "litellm/neuralwatt/kimi-k2.6"
+          "model": "litellm/opencode-go/kimi-k2.6"
         },
         "qwen": {
-          "model": "litellm/neuralwatt/qwen3.5-397b"
+          "model": "litellm/opencode-go/qwen3.7-max"
         },
         "minimax": {
-          "model": "litellm/MiniMax-M3"
+          "model": "litellm/opencode-go/minimax-m3"
         }
       }
     },
@@ -87,11 +59,11 @@
       "model": "litellm/minimax/MiniMax-M3",
       "prompt": "You are fixer-bigctx, a scoped implementation specialist for work that exceeds 131k context or needs the strongest general multimodal model. You run on MiniMax M3 (1M context, vision). You are a weaker coder than the primary fixer (Qwen) but have a larger context window and a different model family. Use for: large-file edits, vision-driven implementation, and overflow when fixer lanes are saturated.",
       "orchestratorPrompt": "@fixer-bigctx\n- Role: Big-context / vision implementation overflow specialist (MiniMax M3, 1M, vision)\n- **Delegate when:** context exceeds 131k • vision-driven implementation tasks • when fixer lanes are saturated and more parallel coding capacity is needed\n- **Don't delegate when:** standard-sized scoped edits (prefer fixer) • pure reasoning/architecture (prefer oracle) • read-only recon (prefer explorer)"
+    },
+    "reviewer": {
+      "model": "litellm/minimax/MiniMax-M3",
+      "prompt": "You are reviewer, an independent code review and creative specialist. You run on MiniMax M3 (1M, vision), a different model family from GLM/Qwen. Use for: independent second opinions, code review, creative writing, and documentation prose.",
+      "orchestratorPrompt": "@reviewer\n- Role: Independent review and creative specialist (MiniMax M3, different family from GLM/Qwen)\n- **Delegate when:** code review needs a second opinion • creative/prose tasks • high-stakes review (pair with fixer or oracle for cross-family consensus)\n- **Don't delegate when:** implementation (prefer fixer) • architecture decisions (prefer oracle) • recon (prefer explorer)"
     }
-  },
-  "reviewer": {
-    "model": "litellm/minimax/MiniMax-M3",
-    "prompt": "You are reviewer, an independent code review and creative specialist. You run on MiniMax M3 (1M, vision), a different model family from GLM/Qwen. Use for: independent second opinions, code review, creative writing, and documentation prose.",
-    "orchestratorPrompt": "@reviewer\n- Role: Independent review and creative specialist (MiniMax M3, different family from GLM/Qwen)\n- **Delegate when:** code review needs a second opinion • creative/prose tasks • high-stakes review (pair with fixer or oracle for cross-family consensus)\n- **Don't delegate when:** implementation (prefer fixer) • architecture decisions (prefer oracle) • recon (prefer explorer)"
   }
 }
