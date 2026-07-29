@@ -11,3 +11,5 @@ idiomatic_version_file_enable_tools = ["node"]
 go = "latest"
 node = "latest"
 rust = "latest"
+
+"github:re-verse/rcp" = "latest"
