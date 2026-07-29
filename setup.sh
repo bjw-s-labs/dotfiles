@@ -14,12 +14,23 @@ if [ "${ostype}" == "Darwin" ]; then
   declare git_cmd_path="/Library/Developer/CommandLineTools/usr/bin/git"
   if [ ! -e "${git_cmd_path}" ]; then
     xcode-select --install
+    echo "Waiting for Xcode Command Line Tools installation to complete..."
+    # xcode-select --install returns immediately; poll until the git binary appears.
+    # Bail after 10 minutes so the script doesn't hang if the user cancels the dialog.
+    declare -i waited=0
+    while [ ! -e "${git_cmd_path}" ]; do
+      if [ "${waited}" -ge 900 ]; then
+        echo "Timed out waiting for Command Line Tools after 15 minutes." >&2
+        echo "Please re-run this script after installing them manually (xcode-select --install)." >&2
+        exit 1
+      fi
+      sleep 5
+      waited+=5
+    done
+    echo "Command Line Tools installed."
   else
     echo "Command line developer tools are already installed."
   fi
-
-  # Install rosetta
-  sudo softwareupdate --agree-to-license --install-rosetta
 
   # Install Homebrew if necessary
   export HOMEBREW_CASK_OPTS=--no-quarantine
