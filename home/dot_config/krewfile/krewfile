@@ -1,12 +1,10 @@
 index default  https://github.com/kubernetes-sigs/krew-index.git
+index kopiur https://github.com/home-operations/kopiur.git
 index netshoot https://github.com/nilic/kubectl-netshoot.git
 
 browse-pvc
-df-pv
 klock
+kopiur/kopiur
 neat
 netshoot/netshoot
-oidc-login
-pv-migrate
-rook-ceph
 view-secret
