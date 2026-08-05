@@ -23,6 +23,8 @@ auto-update = download
 auto-update-channel = stable
 clipboard-trim-trailing-spaces = true
 shell-integration = detect
+quit-after-last-window-closed = true
+window-new-tab-position = end
 
 # Window settings
 window-height = 45
