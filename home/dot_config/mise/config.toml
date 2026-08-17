@@ -13,3 +13,4 @@ node = "latest"
 rust = "latest"
 
 "github:re-verse/rcp" = "latest"
+"go:github.com/brumhard/krewfile" = "latest"
