@@ -11,6 +11,7 @@ idiomatic_version_file_enable_tools = ["node"]
 go = "latest"
 node = "latest"
 rust = "latest"
+uv = "latest"
 
 "github:re-verse/rcp" = "latest"
 "go:github.com/brumhard/krewfile" = "latest"
