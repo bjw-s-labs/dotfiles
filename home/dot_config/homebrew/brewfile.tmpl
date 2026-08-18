@@ -137,7 +137,6 @@ vscode "samuelcolvin.jinjahtml"
 vscode "savh.json5-kit"
 vscode "tamasfe.even-better-toml"
 
-{{ if (not .isWorkComputer) }}
 cask "android-platform-tools"
 cask "anylist"
 cask "autodesk-fusion"
@@ -145,9 +144,4 @@ cask "openscad@snapshot"
 cask "windows-app"
 
 mas "Labelife", id: 1560922539
-{{ else }}
-cask "citrix-workspace"
-cask "microsoft-auto-update"
-cask "microsoft-teams"
-{{ end }}
 {{ end }}
