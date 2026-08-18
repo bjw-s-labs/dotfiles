@@ -1,0 +1,6 @@
+{{ if ne .chezmoi.os "darwin" -}}
+.hammerspoon
+.config/karabiner
+.config/1Password
+Library
+{{ end -}}

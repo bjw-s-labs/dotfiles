@@ -1,5 +1,4 @@
 brew "atuin"
-brew "bash"
 brew "bat"
 brew "chezmoi"
 brew "cilium-cli"
@@ -10,7 +9,6 @@ brew "docker-compose"
 brew "doggo"
 brew "eza"
 brew "findutils"
-brew "fish"
 brew "fzf"
 brew "gawk"
 brew "gcli"
@@ -32,33 +30,40 @@ brew "krew"
 brew "kubecolor"
 brew "kustomize"
 brew "lazygit"
-brew "libevent"
-brew "mas"
 brew "minijinja-cli"
 brew "mise"
 brew "neovim"
 brew "opencode"
 brew "oxfmt"
-brew "pinentry-mac"
 brew "pvetui"
 brew "rtk"
 brew "shellcheck"
 brew "starship"
 brew "stern"
 brew "talosctl"
-brew "telnet"
 brew "tmux"
 brew "wget"
 brew "yamllint"
 brew "yq"
 brew "zoxide"
 brew "fluxcd/tap/flux", trusted: true
-brew "kanidm/kanidm/kanidm", trusted: true
 brew "mirceanton/taps/kubectl-switch", trusted: true
+
+cask "1password-cli"
+
+{{ if ne .chezmoi.os "darwin" -}}
+{{ end }}
+{{- if eq .chezmoi.os "darwin" }}
+brew "bash"
+brew "fish"
+brew "mas"
+brew "libevent"
+brew "pinentry-mac"
+brew "telnet"
+brew "kanidm/kanidm/kanidm", trusted: true
 brew "terror/tap/just-lsp", trusted: true
 
 cask "1password"
-cask "1password-cli"
 cask "acorn"
 cask "alfred"
 cask "autodesk-fusion"
@@ -147,4 +152,5 @@ mas "Labelife", id: 1560922539
 cask "citrix-workspace"
 cask "microsoft-auto-update"
 cask "microsoft-teams"
+{{ end }}
 {{ end }}

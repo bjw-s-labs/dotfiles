@@ -61,4 +61,38 @@ if [ "${ostype}" == "Darwin" ]; then
   echo "Applying Chezmoi configuration."
   chezmoi init "${DOTFILES_REPO_URL}"
   chezmoi apply
+elif [ "${ostype}" == "Linux" ]; then
+  # Install Homebrew if necessary
+  if command -v brew &>/dev/null; then
+    echo "Homebrew is already installed."
+  else
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  fi
+
+  # Install chezmoi if necessary
+  if command -v chezmoi &>/dev/null; then
+    echo "Chezmoi is already installed."
+  else
+    brew install chezmoi
+  fi
+
+  # Install the 1Password CLI if necessary
+  # (there is no 1Password desktop app on Linux in this setup; secrets are
+  # resolved via a 1Password service account instead)
+  if command -v op &>/dev/null; then
+    echo "1Password CLI is already installed."
+  else
+    brew install 1password-cli
+  fi
+
+  if [ -z "${OP_SERVICE_ACCOUNT_TOKEN:-}" ] || ! op whoami &>/dev/null; then
+    echo "OP_SERVICE_ACCOUNT_TOKEN must be set to a valid 1Password service account token before continuing." >&2
+    exit 1
+  fi
+
+  # Apply dotfiles
+  echo "Applying Chezmoi configuration."
+  chezmoi init "${DOTFILES_REPO_URL}"
+  chezmoi apply
 fi

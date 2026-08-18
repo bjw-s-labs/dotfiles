@@ -5,13 +5,13 @@ set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx MISE_FISH_AUTO_ACTIVATE 0
 
-for bindir in /usr/local/bin /opt/homebrew/bin
+for bindir in /usr/local/bin /opt/homebrew/bin /home/linuxbrew/.linuxbrew/bin
     test -d $bindir && fish_add_path --global --prepend $bindir
 end
 
 type -q brew && eval (brew shellenv)
 
-fish_add_path --global --prepend /opt/homebrew/opt/curl/bin
+test -d $HOMEBREW_PREFIX/opt/curl/bin && fish_add_path --global --prepend $HOMEBREW_PREFIX/opt/curl/bin
 
 if type -q gdu
     fish_add_path --global --prepend $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin
@@ -26,5 +26,5 @@ if type -q gawk
 end
 
 if type -q gfind
-    fish_add_path --global --prepend /opt/homebrew/opt/findutils/libexec/gnubin
+    fish_add_path --global --prepend $HOMEBREW_PREFIX/opt/findutils/libexec/gnubin
 end

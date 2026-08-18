@@ -6,7 +6,9 @@
 [gpg]
   format = ssh
 [gpg "ssh"]
+{{- if eq .chezmoi.os "darwin" }}
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+{{- end }}
 	allowedSignersFile = "{{.chezmoi.homeDir}}/.ssh/allowed_signers"
 [init]
 	defaultBranch = main
@@ -29,8 +31,3 @@
 	name = {{ .personal.full_name }}
 	email = {{ .personal.git_email }}
 	signingkey = {{ onepasswordRead "op://bnodm2lukpxmk6lotmtqi6gca4/nxc452etmt5g2kzbplvha7walm/public key" "MZ35OPW6FJA6HHBP2XLOFOGL2U" }}
-
-{{- if (.isWorkComputer) }}
-[include]
-  path = "{{.chezmoi.homeDir}}/.config/git/work_config"
-{{- end }}
