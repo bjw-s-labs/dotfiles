@@ -1,5 +1,6 @@
 format = """
 $time\
+$hostname\
 $directory\
 $kubernetes\
 $git_branch\
@@ -25,6 +26,12 @@ format = "[ $path]($style) "
 
 [golang]
 symbol = " "
+
+[hostname]
+ssh_only = true
+ssh_symbol = "󰢠 "
+format = "[$ssh_symbol$hostname]($style) "
+style = "fg:sky"
 
 [kubernetes]
 disabled = false
