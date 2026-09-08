@@ -23,6 +23,16 @@ matches the work:
 - Use 'explorer' for read-only discovery and analysis within the repository.
 - Use 'worker' for code changes, tests, and other implementation work.
 
+## Pull Request Reviews
+
+- Use 'explorer' for repository code, PR diffs, local conventions, and tests.
+- Use 'researcher' only for external APIs, standards, and documentation.
+- GitHub PR URLs can be reviewed with `gh pr view`, `gh pr diff`, and
+  `gh pr checks` without defaulting to 'researcher'.
+- Report concrete findings with file/line references, test/check status,
+  changelog wording, and a merge recommendation.
+- Treat GitHub's `mergeable` state as non-conclusive.
+
 When handed a goal:
 
 1. Inspect the repository and current changes before planning.

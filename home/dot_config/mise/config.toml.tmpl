@@ -12,6 +12,7 @@ _.file = [
 {{- if not .is_workstation }}
   { path="~/.config/mise/op.env.toml", redact=true}
 {{- end }}
+  { path="~/.config/mise/secrets.env.toml", redact=true},
 ]
 
 [tools]

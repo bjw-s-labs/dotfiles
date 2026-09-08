@@ -1,4 +1,3 @@
-{{- $litellmKey := onepasswordRead "op://laoeuawucd7pzb4he4xin63e5u/3kepvel2gmvl2haje5pgbe5msa/password" -}}
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "orchestrator",
@@ -8,14 +7,14 @@
       "type": "remote",
       "url": "https://litellm.bjw-s.dev/mcp/",
       "headers": {
-        "Authorization": "Bearer {{ $litellmKey }}",
-        "x-litellm-api-key": "Bearer {{ $litellmKey }}"
+        "Authorization": "Bearer {env:OPENCODE_LITELLM_KEY}",
+        "x-litellm-api-key": "Bearer {env:OPENCODE_LITELLM_KEY}"
       },
       "oauth": false
     }
   },
   "plugin": [
-    "superpowers@git+https://github.com/obra/superpowers.git",
+    "superpowers@git+https://github.com/obra/superpowers.git"
   ],
   "provider": {
     "litellm": {
@@ -23,7 +22,7 @@
       "name": "LiteLLM",
       "options": {
         "baseURL": "https://litellm.bjw-s.dev/v1",
-        "apiKey": "{{ $litellmKey }}"
+        "apiKey": "{env:OPENCODE_LITELLM_KEY}"
       },
       "models": {
         "minimax/MiniMax-M2-7": {
