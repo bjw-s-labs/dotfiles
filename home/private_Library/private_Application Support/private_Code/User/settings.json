@@ -79,13 +79,6 @@
   "mise.checkForNewMiseVersion": false,
   "path-autocomplete.triggerOutsideStrings": true,
   "redhat.telemetry.enabled": false,
-  "roo-cline.debug": false,
-  "roo-cline.allowedCommands": [
-    "git log",
-    "git diff",
-    "git show"
-  ],
-  "roo-cline.deniedCommands": [],
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.shellIntegration.enabled": false,
   "update.mode": "default",
@@ -118,4 +111,8 @@
     "editorIndentGuide.activeBackground5": "#89b4fa",
     "editorIndentGuide.activeBackground6": "#cba6f7",
   },
+  "remote.SSH.useLocalServer": false,
+  "remote.SSH.remotePlatform": {
+    "*.bjw-s.internal": "linux"
+  }
 }
