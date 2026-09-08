@@ -13,5 +13,6 @@ node = "latest"
 rust = "latest"
 uv = "latest"
 
+"github:jdx/fnox" = "latest"
 "github:re-verse/rcp" = "latest"
 "go:github.com/brumhard/krewfile" = "latest"

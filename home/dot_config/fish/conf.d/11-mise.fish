@@ -7,3 +7,7 @@ if type -q mise
     command mise activate fish --shims | source
   end
 end
+
+if type -q fnox
+    command fnox activate fish | source
+end
