@@ -1,3 +1,4 @@
+{{- $litellmKey := onepasswordRead "op://laoeuawucd7pzb4he4xin63e5u/3kepvel2gmvl2haje5pgbe5msa/password" -}}
 {
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "orchestrator",
@@ -7,8 +8,8 @@
       "type": "remote",
       "url": "https://litellm.bjw-s.dev/mcp/",
       "headers": {
-        "Authorization": "Bearer {{ onepasswordRead "op://rrs5eynf6ibou7zbumg56erpd4/tgnvgd3cz73vofjnlyv4sgcoxa/master_key" "MZ35OPW6FJA6HHBP2XLOFOGL2U" }}",
-        "x-litellm-api-key": "Bearer {{ onepasswordRead "op://rrs5eynf6ibou7zbumg56erpd4/tgnvgd3cz73vofjnlyv4sgcoxa/master_key" "MZ35OPW6FJA6HHBP2XLOFOGL2U" }}"
+        "Authorization": "Bearer {{ $litellmKey }}",
+        "x-litellm-api-key": "Bearer {{ $litellmKey }}"
       },
       "oauth": false
     }
@@ -22,7 +23,7 @@
       "name": "LiteLLM",
       "options": {
         "baseURL": "https://litellm.bjw-s.dev/v1",
-        "apiKey": "{{ onepasswordRead "op://rrs5eynf6ibou7zbumg56erpd4/tgnvgd3cz73vofjnlyv4sgcoxa/master_key" "MZ35OPW6FJA6HHBP2XLOFOGL2U" }}"
+        "apiKey": "{{ $litellmKey }}"
       },
       "models": {
         "minimax/MiniMax-M2-7": {

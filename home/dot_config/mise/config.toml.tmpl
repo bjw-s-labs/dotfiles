@@ -7,6 +7,13 @@ always_keep_install = false  # deleted on failure by default
 
 idiomatic_version_file_enable_tools = ["node"]
 
+[env]
+_.file = [
+{{- if not .is_workstation }}
+  { path="~/.config/mise/op.env.toml", redact=true}
+{{- end }}
+]
+
 [tools]
 go = "latest"
 node = "latest"

@@ -1,4 +1,14 @@
+{{- /* Interactive workstations run the 1Password desktop app; everything else (servers) authenticates with a 1Password service account. */ -}}
+{{- $isWorkstation := eq .chezmoi.os "darwin" -}}
+
 [data]
+is_workstation = {{ $isWorkstation }}
+
 [data.personal]
 full_name = "Bernd Schorgers"
 git_email = "me@bjw-s.dev"
+
+{{ if not $isWorkstation -}}
+[onepassword]
+mode = "service"
+{{ end -}}
