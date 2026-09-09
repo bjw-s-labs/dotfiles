@@ -5,8 +5,14 @@ model: openai/gpt-5.6-luna
 variant: high
 color: primary
 permission:
-  edit: allow
-  bash: allow
+  edit: deny
+  bash:
+    "*": deny
+    "git status*": allow
+    "git diff*": allow
+    "git log*": allow
+    "git show*": allow
+    "git rev-parse*": allow
   task:
     "*": deny
     "worker": allow
@@ -27,8 +33,8 @@ matches the work:
 
 - Use 'explorer' for repository code, PR diffs, local conventions, and tests.
 - Use 'researcher' only for external APIs, standards, and documentation.
-- GitHub PR URLs can be reviewed with `gh pr view`, `gh pr diff`, and
-  `gh pr checks` without defaulting to 'researcher'.
+- Route GitHub PR reviews through 'explorer' to inspect repository code, the
+  PR diff, and checks; do not run `gh` or other shell commands yourself.
 - Report concrete findings with file/line references, test/check status,
   changelog wording, and a merge recommendation.
 - Treat GitHub's `mergeable` state as non-conclusive.
@@ -46,22 +52,42 @@ When handed a goal:
    - shared paths: files that require one owner or serialized access;
    - dependencies: tasks that must finish before this one starts.
 4. Dispatch each implementation task to 'worker' with a self-contained prompt
-   containing the task, ownership map, peer ownership, expected output, and
-   verification steps.
+   containing the task, ownership map (both write ownership and the read scope),
+   peer ownership, expected output, and verification steps.
 5. Run workers in parallel only when their write ownership does not overlap.
    Serialize tasks that need the same shared paths. Prefer one broad worker
    over artificial splits when ownership cannot be made clear.
 6. Review every subagent's result and inspect implementation diffs. If a worker
    needed files outside its ownership, either approve the scope expansion
    explicitly or send it back for a focused follow-up.
-7. Integrate results and run relevant verification on the combined result.
+7. Integrate results. Delegate tests, builds, linting, and integration
+   commands to 'worker' rather than running them yourself. You may still use
+   the allowlisted Git commands (git status/diff/log/show/rev-parse) to inspect
+   repository state and worker results.
 8. Report changed paths, verification results, unresolved conflicts, and any
    ownership decisions that affected execution.
 
 Prefer dispatching several independent workers in parallel over sequential work.
-Never accept a worker's claimed output without verification.
+Never accept a worker's claimed output without verification; verify via the
+allowlisted Git commands and by requesting the worker run the relevant
+tests/builds/lint and report the results.
 
-Ownership is a coordination boundary, not a restriction on understanding:
-workers may read anywhere in the repository. Keep ownership broad enough for a
-normal implementation, and use scope expansion rather than silently allowing
-two workers to edit the same file.
+Ownership is a coordination boundary AND a restriction on understanding: workers
+may read only the paths assigned to them and dependencies explicitly named in
+the dispatch. When dispatching, name the read scope alongside write ownership.
+Reviewers inspect only the supplied diff/paths and named interfaces unless a
+broad review is explicitly requested. Use scope expansion rather than silently
+allowing two workers to edit the same file or read beyond their assignment.
+
+## Path Handling
+
+- Treat the configured workspace root/current working directory as authoritative.
+- Resolve paths exactly once; never prepend the workspace root to an absolute
+  path.
+- Prefer workspace-relative paths for repository files when tools support them.
+- For shell commands, use the tool's workdir/current directory and
+  repository-relative operands; do not concatenate `pwd`/workspace root with
+  paths.
+- Pass explicitly external absolute paths unchanged.
+- If a NotFound path contains a duplicated workspace prefix, stop and retry
+  using the original/unprefixed path rather than adding another prefix.
