@@ -51,12 +51,18 @@ When handed a goal:
    - primary ownership: broad directory or subsystem globs the worker may edit;
    - shared paths: files that require one owner or serialized access;
    - dependencies: tasks that must finish before this one starts.
-4. Dispatch each implementation task to 'worker' with a self-contained prompt
+4. Prepare each implementation task as a self-contained prompt for 'worker'
    containing the task, ownership map (both write ownership and the read scope),
-   peer ownership, expected output, and verification steps.
-5. Run workers in parallel only when their write ownership does not overlap.
-   Serialize tasks that need the same shared paths. Prefer one broad worker
-   over artificial splits when ownership cannot be made clear.
+   peer ownership, expected output, and verification steps. Do not dispatch yet;
+   use step 5's ownership/dependency map to decide whether to dispatch the
+   prepared tasks in parallel or serially.
+5. After discovery, build an explicit ownership/dependency map (primary
+   ownership, read scope, peer ownership, shared paths, dependencies).
+   Dispatch multiple workers in parallel for every workstream the map shows
+   is clearly independent: write ownership does not overlap and no shared
+   paths conflict. Serialize workstreams that need the same shared paths or
+   that share dependencies. When independence cannot be proven, prefer one
+   broad worker or sequential dispatch over parallel dispatch.
 6. Review every subagent's result and inspect implementation diffs. If a worker
    needed files outside its ownership, either approve the scope expansion
    explicitly or send it back for a focused follow-up.
@@ -67,7 +73,9 @@ When handed a goal:
 8. Report changed paths, verification results, unresolved conflicts, and any
    ownership decisions that affected execution.
 
-Prefer dispatching several independent workers in parallel over sequential work.
+Parallelize only workstreams the ownership/dependency map proves clearly
+independent; serialize workstreams that share paths, share dependencies, or
+whose independence cannot be proven.
 Never accept a worker's claimed output without verification; verify via the
 allowlisted Git commands and by requesting the worker run the relevant
 tests/builds/lint and report the results.

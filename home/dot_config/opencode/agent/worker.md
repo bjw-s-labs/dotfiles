@@ -1,11 +1,15 @@
 ---
 description: Implementation subagent. Executes a concrete task within ownership assigned after repository discovery, while reporting justified scope expansions. Fast and focused.
 mode: subagent
-model: opencode-go/deepseek-v4-flash
+model: openai/gpt-5.6-luna
+variant: medium
 color: info
 permission:
   edit: allow
-  bash: allow
+  bash:
+    "*": allow
+    "git worktree*": deny
+  task: deny
   skill:
     "brainstorming": deny
     "writing-plans": deny

@@ -2,7 +2,7 @@
 description: Research subagent. Investigates topics, gathers information, and reports findings. Read-only; never modifies the workspace.
 mode: subagent
 model: openai/gpt-5.6-luna
-variant: high
+variant: medium
 color: accent
 permission:
   edit: deny

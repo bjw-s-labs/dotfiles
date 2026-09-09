@@ -1,7 +1,8 @@
 ---
 description: Codebase exploration subagent. Maps task boundaries, likely changed paths, shared integration points, and dependencies without editing. Read-only and fast.
 mode: subagent
-model: opencode-go/deepseek-v4-flash
+model: openai/gpt-5.6-luna
+variant: low
 color: info
 permission:
   edit: deny
@@ -15,6 +16,7 @@ permission:
     "gh pr view*": allow
     "gh pr diff*": allow
     "gh pr checks*": allow
+    "gh pr list*": allow
     "gh repo view*": allow
     "gh auth status*": allow
     "gh issue list*": allow
@@ -23,8 +25,6 @@ permission:
     "gh release view*": allow
     "gh run list*": allow
     "gh run view*": allow
-    "tea pulls": allow
-    "tea pulls [0-9]*": allow
     "tea pulls list*": allow
     "tea pulls review-comments*": allow
     "tea repos list*": allow
