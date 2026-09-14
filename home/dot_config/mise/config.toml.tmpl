@@ -21,6 +21,11 @@ node = "latest"
 rust = "latest"
 uv = "latest"
 
+{{- if (eq .chezmoi.os "darwin") }}
+"cargo:forgejo-cli" = "latest" # provides `fj`; upstream ships no macOS release assets
+{{- else }}
+"forgejo:forgejo-contrib/forgejo-cli" = "latest"
+{{- end }}
 "github:jdx/fnox" = "latest"
 "github:re-verse/rcp" = "latest"
 "go:github.com/brumhard/krewfile" = "latest"
