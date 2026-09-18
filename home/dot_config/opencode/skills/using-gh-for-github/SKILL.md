@@ -1,6 +1,6 @@
 ---
 name: using-gh-for-github
-description: Use when working with the gh CLI, GitHub repositories, issues, pull requests, releases, GitHub Actions, or GitHub Enterprise; provides safe host-aware workflows for read/write operations and authentication.
+description: "Use when working with the gh CLI or GitHub (GitHub.com or GitHub Enterprise Server): repositories, issues, pull requests, releases, GitHub Actions, or authentication. Provides safe host-aware read/write workflows. Not for Gitea/Forgejo — use `using-fj-for-forgejo` there."
 ---
 
 # Using gh with GitHub
@@ -47,7 +47,7 @@ manual rather than guessing.
   Never claim merge success merely because a command returned: account for
   merge queues and `gh pr checks` pending/fail/cancel states. Prefer
   `--match-head-commit` when merging to avoid racing the head branch.
-- Do not use `tea` as a fallback for GitHub, and do not imply GitHub.com
+- Do not use `fj` as a fallback for GitHub, and do not imply GitHub.com
   behavior applies to GitHub Enterprise Server. Report authentication,
   permission, host, or version/feature errors instead.
 

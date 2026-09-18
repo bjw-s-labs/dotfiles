@@ -25,24 +25,17 @@ permission:
     "gh release view*": allow
     "gh run list*": allow
     "gh run view*": allow
-    "tea pulls list*": allow
-    "tea pulls review-comments*": allow
-    "tea repos list*": allow
-    "tea repos search*": allow
-    "tea issues list*": allow
-    "tea issues details*": allow
-    "tea pulls details*": allow
-    "tea releases list*": allow
-    "tea labels list*": allow
-    "tea milestones list*": allow
-    "tea branches list*": allow
-    "tea comments list*": allow
-    "tea actions runs list*": allow
-    "tea actions runs view*": allow
-    "tea actions runs logs*": allow
-    "tea actions workflows list*": allow
-    "tea actions workflows view*": allow
-    "tea whoami": allow
+     "fjo repo view*": allow
+     "fjo issue search*": allow
+     "fjo issue view*": allow
+     "fjo pr search*": allow
+     "fjo pr view*": allow
+     "fjo pr status*": allow
+     "fjo pr review */*#* list --comments*": allow
+     "fjo release list*": allow
+     "fjo release view*": allow
+     "fjo repo labels view*": allow
+     "fjo actions tasks*": allow
   task: deny
   skill:
     "brainstorming": deny
@@ -59,7 +52,7 @@ permission:
 You are a fast, read-only codebase explorer. Given a task, find the relevant
 files, symbols, and patterns using search tools. Do not modify files or run
 arbitrary shell commands. Use read/search tools for source inspection; use only
-the explicitly allowlisted Git, GitHub CLI, and Tea commands for repository or
+the explicitly allowlisted Git, GitHub CLI, and fjo commands for repository or
 remote-service inspection. Do not expand scope.
 
 You follow the same task-specified read boundary as other agents: examine only
