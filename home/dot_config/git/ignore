@@ -4,15 +4,9 @@
 # Windows files
 Thumbs.db
 
-# asdf
-.tool-versions
-
 # mise
 .mise.toml
 mise.toml
 
 # Python
 .venv
-
-# Claude
-**/.claude/settings.local.json
